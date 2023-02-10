@@ -11,12 +11,7 @@ for i in range(2, max + 1):
         j += 1
             
 while True:
-    try:
-        n = int(input())
-        
-    except:
-      break
-      
+          
     a = 0
           
     for i in range(3,n):
@@ -38,6 +33,9 @@ for i in range(2, 1001):
 while True:
   try:
     n = int(input())
+    if(n == 0):
+      break 
+
 
   except:
     break
