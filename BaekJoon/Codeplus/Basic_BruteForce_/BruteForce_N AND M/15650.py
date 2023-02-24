@@ -3,9 +3,10 @@ def dfs(start):
         print(' '.join(map(str, s)))
         return
     for i in range(start, n+1):
-      s.append(i)
-      dfs(i)
-      s.pop()
+      if i not in s:
+        s.append(i)
+        dfs(i)
+        s.pop()
 
 n, m = map(int, input().split())
 s = []
