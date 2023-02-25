@@ -1,22 +1,19 @@
-def dfs(start):
+def dfs():
   if len(s) == m:
     print(' '.join(map(str, s)))
-    return 
+    return
 
-  for i in range(start,n):
+  for i in range(n):
     if numbers[i] not in s:
       s.append(numbers[i])
-      dfs(i+1)
+      dfs()
       s.pop()
-
 
 n, m = map(int, input().split())
 numbers = list(map(int, input().split()))
+
 numbers.sort()
 
 s = []
 
-dfs(0)
-
-
-
+dfs()

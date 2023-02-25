@@ -1,0 +1,14 @@
+첫째 줄에 N과 M이 주어지고, 둘째 줄에 N개의 수가 주어짐
+
+ex)
+3 1
+4 5 2
+
+코드 작성
+
+n, m = int(input().split())
+
+numbers = list(map(int, input().split())
+
+
+
