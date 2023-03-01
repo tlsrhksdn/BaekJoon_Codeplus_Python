@@ -15,7 +15,7 @@ def password(cnt, idx):
         print(' '.join(map(str, ans)))
         return
   
-  for i in range(cnt, L):
+  for i in range(L):
     if words[i] not in ans:
       ans.append(words[i])
       password(cnt+1,idx)
