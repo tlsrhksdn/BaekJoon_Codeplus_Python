@@ -1,22 +1,20 @@
-def dfs(start):
+def dfs():
   if len(s) == m:
     print(' '.join(map(str, s)))
-    return 
 
-  for i in range(start,n):
-    if numbers[i] not in s:
-      s.append(numbers[i])
-      dfs(i+1)
+  for i in range(n):
+    if i not in s:
+      s.append()
+      dfs()
       s.pop()
 
+n, m, k = map(int, input().split())
 
-n, m = map(int, input().split())
-numbers = list(map(int, input().split()))
-numbers.sort()
+matrix = []
 
+for i in range(n):
+  for j in range(m):
+    matrix[i][j] = 
 s = []
 
-dfs(0)
-
-
-
+dfs()
