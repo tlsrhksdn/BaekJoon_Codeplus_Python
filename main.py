@@ -1,25 +1,27 @@
-# cnt는 문자개수, idx는 인덱스값
-def password(cnt, idx):
-  if cnt == 1:
-    vo, co = 0, 0
+def check(ans):
+  vo, co = 0, 0
+  
+  for i in range(L):
+    if ans[i] in vowels:
+      vo += 1
+    else:
+      co += 1
 
-    for i in range(L):
-      if ans[i] in vowel:
-        vo += 1
-      else:
-        co += 1
+  if vo >= 1 and co >= 2:
+    return True
+  else:
+    return False
+      
+def password(idx):
+  if len(ans) == L:
+    if check(ans):
+      print(' '.join(map(str, ans)))
+    return
   
-    if vo >= 1 and co >= 2:
-      if len(ans) == L:
-        
-        print(' '.join(map(str, ans)))
-        return
-  
-  for i in range(cnt, L):
-    if words[i] not in ans:
-      ans.append(words[i])
-      password(cnt+1,idx)
-      ans.pop()
+  for i in range(idx, C): 
+    ans.append(words[i])
+    password(i + 1)
+    ans.pop()
     
   
 L,C = map(int, input().split())
@@ -28,7 +30,8 @@ words = list(map(str, input().split()))
 
 words.sort()
 
-vowel = ['a','e','i','o','u']
+vowels = ['a','e','i','o','u']
+
 ans = []
 
-password(0,0)
+password(0)
