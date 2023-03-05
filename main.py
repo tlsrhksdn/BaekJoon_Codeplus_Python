@@ -1,37 +1,52 @@
-def check(ans):
-  vo, co = 0, 0
-  
-  for i in range(L):
-    if ans[i] in vowels:
-      vo += 1
-    else:
-      co += 1
+# 2번쨰 케이스
 
-  if vo >= 1 and co >= 2:
-    return True
-  else:
-    return False
-      
-def password(idx):
-  if len(ans) == L:
-    if check(ans):
-      print(' '.join(map(str, ans)))
-    return
-  
-  for i in range(idx, C): 
-    ans.append(words[i])
-    password(i + 1)
-    ans.pop()
-    
-  
-L,C = map(int, input().split())
+#(1,3)=2 (1,6)=5 (3,1)=1 (3,6)=5 (6,1)=1 (6,3)=3
 
-words = list(map(str, input().split()))
+#합: 17
 
-words.sort()
+#(2,4)=3 (2,5)=4 (4,2)=2 (4,5)=4 (5,2)=2 (5,4)=0
 
-vowels = ['a','e','i','o','u']
+#합: 15
 
-ans = []
+def dfs(index):
+    global minAns
+    # 백트래킹 답 체크 시점
+    if index == N // 2:
+        startSum = 0
+        linkSum = 0
+        for i in range(0,N):
+            if i not in start:
+                link.append(i)
+        for i in range(0, N // 2 - 1):
+            for j in range(i+1, N // 2):
+                startSum += arr[start[i]][start[j]] + arr[start[j]][start[i]]
+                linkSum += arr[link[i]][link[j]] + arr[link[j]][link[i]]
+        diff = abs(linkSum-startSum)
+        if minAns > diff:
+            minAns = diff
+        # 링크팀을 항상 계산이 끝나면 비워줘야한다.
+        link.clear()
+        return
+    #dfs 시행
+    for i in range(N):
+        if i in start: continue
+        if len(start)>0 and start[len(start)-1]> i : continue
+        start.append(i)
+        dfs(index + 1)
+        start.pop()
 
-password(0)
+
+N = int(input())
+
+arr = []
+start = []
+link = []
+for i in range(N):
+    arr.append(list(map(int, input().split())))
+
+minAns = float('Inf')
+dfs(0)
+print(minAns)
+
+
+
