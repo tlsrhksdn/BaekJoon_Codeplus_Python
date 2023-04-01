@@ -1,52 +1,19 @@
-# 2번쨰 케이스
-
-#(1,3)=2 (1,6)=5 (3,1)=1 (3,6)=5 (6,1)=1 (6,3)=3
-
-#합: 17
-
-#(2,4)=3 (2,5)=4 (4,2)=2 (4,5)=4 (5,2)=2 (5,4)=0
-
-#합: 15
-
-def dfs(index):
-    global minAns
-    # 백트래킹 답 체크 시점
-    if index == N // 2:
-        startSum = 0
-        linkSum = 0
-        for i in range(0,N):
-            if i not in start:
-                link.append(i)
-        for i in range(0, N // 2 - 1):
-            for j in range(i+1, N // 2):
-                startSum += arr[start[i]][start[j]] + arr[start[j]][start[i]]
-                linkSum += arr[link[i]][link[j]] + arr[link[j]][link[i]]
-        diff = abs(linkSum-startSum)
-        if minAns > diff:
-            minAns = diff
-        # 링크팀을 항상 계산이 끝나면 비워줘야한다.
-        link.clear()
-        return
-    #dfs 시행
-    for i in range(N):
-        if i in start: continue
-        if len(start)>0 and start[len(start)-1]> i : continue
-        start.append(i)
-        dfs(index + 1)
-        start.pop()
-
-
 N = int(input())
 
-arr = []
-start = []
-link = []
+time = [0]
+money = [0]
+
+dp = [0 for i in range(N+1)]
+
 for i in range(N):
-    arr.append(list(map(int, input().split())))
+  T,P = map(int, input().split())
+  time.append(T)
+  money.append(P)
 
-minAns = float('Inf')
-dfs(0)
-print(minAns)
+for i in range(N):
+  for j in range(i + time[i], N+1):
+    dp [j] = max(dp[j], dp[i] +money[i]) 
 
+  print(dp)
 
-
+print(dp[N])
