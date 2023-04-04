@@ -1,28 +1,31 @@
+def backtracking(depth, idx):
+  global min_ans
+  
+  if depth == n//2:
+    start, link = 0, 0
+
+    for i in range(n):
+      for j in range(n):        
+        if visited[i] and visited[j]:
+          start += s[i][j]
+        elif not visited[i] and not visited[j]:
+          link += s[i][j]
+
+        min_ans = min(min_ans, abs(start - link))      
+        
+  for i in range(idx, n):
+    if not visited[i]:
+      visited[i] = True
+      backtracking(depth + 1, idx + 1)
+      visited[i] = False      
+    
 import sys
-n = int(sys.stdin.readline())
-graph = [ list(map(int, sys.stdin.readline().split())) for _ in range(n) ]
-visited = [ False for _ in range(n) ] 
-min_value = sys.maxsize 
+n = int(input())
+s = [list(map(int, input().split())) for _ in range(n)]
 
-def backTracking(depth, idx): 
-    global min_value
-    if depth == n // 2: 
-        power1, power2 = 0, 0
-        for i in range(n):
-            for j in range(n):
-                if visited[i] and visited[j]: 
-                    power1 += graph[i][j]
-                elif not visited[i] and not visited[j]: 
-                    power2 += graph[i][j]
-        min_value = min(min_value, abs(power1-power2)) 
-        return
+min_ans = sys.maxsize
+visited = [False for _ in range(n)]
 
-    for i in range(idx, n): 
-        if not visited[i]:
-            visited[i] = True
-            backTracking(depth + 1, idx + 1) 
-            visited[i] = False
-          
-backTracking(0, 0)
-print(min_value)
 
+backtracking(0, 0)
+print(min_ans)
