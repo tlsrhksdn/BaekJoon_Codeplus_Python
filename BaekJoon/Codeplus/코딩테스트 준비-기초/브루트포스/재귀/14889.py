@@ -7,9 +7,9 @@ def backtracking(depth, idx):
     for i in range(n):
       for j in range(n):        
         if visited[i] and visited[j]:
-          start += s[i][j]
+          start += (s[i][j] + s[j][i])
         elif not visited[i] and not visited[j]:
-          link += s[i][j]
+          link += (s[i][j] + s[j][i])
 
         min_ans = min(min_ans, abs(start - link))      
         
@@ -20,6 +20,7 @@ def backtracking(depth, idx):
       visited[i] = False      
     
 import sys
+
 n = int(input())
 s = [list(map(int, input().split())) for _ in range(n)]
 
