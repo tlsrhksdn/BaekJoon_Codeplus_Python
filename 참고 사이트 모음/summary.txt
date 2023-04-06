@@ -9,3 +9,10 @@ https://80000coding.oopy.io/
 
 42서울 과정을 겪은 학생들이 개발자에게 필요한 지식, 커뮤니티 등을 한데 모은 블로그입니다.
 
+https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4PS-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0
+
+알고리즘 문제풀이와 관련된 팁들을 알려주는 블로그입니다.
+
+https://github.com/KoEonYack/LevelUp-Algorithm
+
+현 네이버웹툰에서 근무하시는 개발자분이 학부 시절 코딩 테스트를 준비하는 과정을 모아놓은 github 주소입니다.
