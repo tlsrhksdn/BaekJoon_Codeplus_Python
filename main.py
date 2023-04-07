@@ -1,37 +1,29 @@
-# 주어진 행렬을 생성할 수 있는 -10에서 10 사이의 정수들의 집합을 찾아라.
-def check(idx):
+def dfs_permutation(arr, n):
+  ret = []
+  idx = [i for i in range(len(arr))]
+
+  stack = []
+  for i in idx:
+    stack.append(i)
+
+  while len(stack) != 0:
+    cur = stack.pop()
+
+    for i in idx:
+      if i not in cur:
+        temp = cur + [i]
+        if len(temp) == n:
+          element = []
+          for i in temp:
+            element.append(arr[i])
+          ret.append(element)
+        else:
+          stack.append(temp)
+  return ret
   
-  
-def backtracking(idx):
-  if idx == n:
-    
-    return
-
-
-  for i in range(n):
-    if visited[i]:
-      
-    
-    
-
-  
-
 
 n = int(input())
 
-container = list(input())
-
-matrix = [[None for _ in range(n)] for _ in range(n)]
-visited = [False for _ in range(10)]
-
-# print(container)
-    
-for i in range(n):
-  for j in range(i, n):
-    matrix[i][j] = container.pop(-1)
+numbers = list(map(int, input().split()))
 
 
-#for i in range(n):
-#  for j in range(n):
-#    print(matrix[i][j])
-    

@@ -1,19 +1,31 @@
-# 행렬의 값이 양수면 +기호를 저장하고, 음수면 -기호를 저장한다
-
-
-def backtracking(depth, idx):
-  if depth == n :
+# 주어진 행렬을 생성할 수 있는 -10에서 10 사이의 정수들의 집합을 찾아라.
+def check(idx):
+  
+  
+def backtracking(idx):
+  if idx == n:
+    
     return
-  return
 
 
+  for i in range(n):
+    if visited[i]: 
+    
 n = int(input())
 
 container = list(input())
 
 matrix = [[None for _ in range(n)] for _ in range(n)]
+visited = [False for _ in range(10)]
 
+# print(container)
+    
 for i in range(n):
   for j in range(i, n):
     matrix[i][j] = container.pop(-1)
-    print(matrix[i][j])
+
+
+#for i in range(n):
+#  for j in range(n):
+#    print(matrix[i][j])
+    
