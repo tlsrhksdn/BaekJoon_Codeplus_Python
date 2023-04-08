@@ -16,3 +16,8 @@ https://plzrun.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%
 https://github.com/KoEonYack/LevelUp-Algorithm
 
 현 네이버웹툰에서 근무하시는 개발자분이 학부 시절 코딩 테스트를 준비하는 과정을 모아놓은 github 주소입니다.
+
+https://tacademy.skplanet.com/live/player/listCategory.action
+
+SKT에서 만든 T아카데미 사이트입니다.
+기본적인 자료구조 및 알고리즘의 Python 코드를 이해하기 위한 강의를 수강하였습니다.
