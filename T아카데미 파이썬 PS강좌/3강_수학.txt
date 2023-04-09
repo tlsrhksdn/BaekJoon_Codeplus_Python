@@ -1,0 +1,93 @@
+숫자로 구성된 문자열을 N진법에 맞게 변환하는 법
+
+def stoi(s, n):
+  ret = 0
+  l = len(s)
+  for i in range(l):
+    ret += int(s[i]) * n**(l-i-1)
+    return ret
+
+-> 더욱 간단하게 하는 법
+
+def stoi(s, n):
+  ret = 0  
+  for i in s:
+    ret = ret*n  + int(i)
+  return ret
+
+최대공약수와 최소공배수
+
+최대공약수란 공통적인 약수 중 최댓값
+최대공약수가 1이면 서로소
+
+최소공배수는 다음 공식으로 구할 수 있다.
+공통된 배수 중 최솟값
+
+LCM(A,B) = A*B / GCD(A,B)
+
+GCD만 잘 구하면 LCM은 O(1)에 구할 수 있다.
+
+#1부터 체크
+
+def gcd(a,b):
+  ret = 0
+  for i in range(min(a, b)):
+    if a%i == 0 and b%i == 0:
+      ret = i
+  return ret
+
+#min(a,b)부터 체크
+
+def gcd(a,b):
+  for i in range(min(a,b), 0 ,-1):
+    if a % i == 0 and b % i == 0 :
+      return i
+
+# 유클리드 호제법
+
+GCD(A, B) = GCD(B, A%B)
+
+def gcd(a, b):
+  return b if a%b == 0 else gcd(b, a%b)
+
+# 소인수분해
+
+#2부터 N-1까지 체크(시간복잡도 : O(N))
+
+def isPrime(N):
+  for i in range(2, N):
+    if N % i == 0:
+      return False
+  return True
+
+#2부터 sqrt(N)까지 체크(시간복잡도: O(sqrtN))
+
+def isPrime(N):
+  i = 2
+  while i*i <= N:
+    if N%i == 0:
+      return False
+  return True
+
+# 에라토스테네스의 채
+
+def era(N):
+  ck, p = [False for _ in range(N+1)], []
+
+  for i in range(2, N+1):
+    if ck[i] == True:
+      continue
+      p.append(i)
+    for j in range(i*i, N+1, i):
+      ck[j] == True
+  return ck, p
+
+
+# 분할 정복(Divide & Conquer)
+
+# 재귀함수
+
+재귀함수를 설계할 때는 최소 조건/ 탈출 조건을 분명하게 한다
+
+분할 정복에 사용하기 위해서는 올바른 문제 조건을 표현할 변수를 선언한다.
+

@@ -22,5 +22,5 @@ for i in range(N):
 
 #3중 for문
 for num in range(N**3):
-  i, j, k = num // (N*N)
+  i, j, k = num // (N*N)                                  
 
