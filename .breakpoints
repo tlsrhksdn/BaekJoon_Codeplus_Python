@@ -1,10 +1,18 @@
 {
   "files": {
+    "BaekJoon/Codeplus/코딩테스트 준비-기초/브루트포스/순열/10972.py": [
+      {
+        "id": "41a2b6a7-1433-4b91-8caf-31e2d77606cf",
+        "line": 6,
+        "version": 183,
+        "index": 120
+      }
+    ],
     "main.py": [
       {
         "id": "b4c959d9-4098-487f-a558-55cf9fe5a7e2",
         "line": 1,
-        "version": 12979,
+        "version": 17002,
         "index": 0
       }
     ]
